@@ -1,6 +1,6 @@
 # Management Services
 
-Here we look the below management services which help us to:
+Here we look at the below management services which help us to:
   * Understand how our stuff is organised, and what we are paying for
   * Understand who has access to our stuff
   * See what is happening to our resources

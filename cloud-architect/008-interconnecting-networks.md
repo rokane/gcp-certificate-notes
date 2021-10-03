@@ -4,14 +4,14 @@ Within GCP, all regions are in themselves, contained within one single private
 network. Therefore, by default, communication between regions and on-premises
 never touches the public internet.
 
-This is unique to GCP as opposed to other cloud providers and means we ge the
+This is unique to GCP as opposed to other cloud providers and means we get the
 following benefits: 
 
   * Single Global / Cross - Region VPC 
   * Global internal DNS / Load Balancing / Firewall Rules / Routes
   * Global Public DNS
 
-To connect your to the GCP network you can do so in one of three ways. The following  
+To connect your network to the GCP network you can do so in one of three ways. The following  
 topics will discuss each in more detail.
 
 ## Cloud Interconnect
@@ -41,7 +41,7 @@ When would I not use this option:
   * Need to access the public internet
   * Need to save costs
 
-![Cloud Interconnect](./cloud-architect/assets/008-cloud-interconnect.png)
+![Cloud Interconnect](./cloud-architect/assets/../../assets/008-cloud-interconnect.png)
 
 ## Cloud VPN
 

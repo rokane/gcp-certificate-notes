@@ -37,7 +37,8 @@ Link to case study: [mountkirk games](https://services.google.com/fh/files/blogs
    * Mobile game creator
 
 2. What are their pain points?
-   * 
+   * Legacy platform inability to provide the insights they want
+   * Inability to scale up / down on demand
 
 3. What are their goals?
    * Expand to other platforms outside of the mobile space
@@ -87,6 +88,7 @@ Link to case study: [mountkirk games](https://services.google.com/fh/files/blogs
      * Expose data for future analytics with BigQuery External Table 
    * Use GPU processing to render graphics server side for multi platform support
    * Support eventual migration of legacy games to new platform
+     * Ability to containerise and run on new platform
 
 7. Current environment / translated to GCP
    * Recently started migrating to GCP
@@ -97,7 +99,6 @@ Link to case study: [mountkirk games](https://services.google.com/fh/files/blogs
    * Seperate environments for dev and test
 
 8. Infrastructure / data lifecycle
-   * See below
 
 ![Solution](./assets/016-mountkirk-games.png)
 
@@ -117,13 +118,18 @@ Link to case study: [erh healthcare](https://services.google.com/fh/files/blogs/
 
 3. What are their goals?
    * Migrate from their on-premise colocation model to cloud 
-   * Enable business agility by scaling with demand and fasten deployment times
    * Uplift DR model to support cloud transition
+   * Continuous Deployment capabilities
+   * Update software at a rapid pace
+   * Scale environments with demand
 
 4. What do they care about?
    * Resiliant platform with high availability
    * Consistency between environments
    * Improve monitoring to enable insights / analytics
+   * Compliance with regulators
+     * HIPPA (Health Care)
+     * PII (Personally Identifiable Information)
 
 5. Business requirements
    * Onboard new providers as quickly as possible
@@ -146,13 +152,12 @@ Link to case study: [erh healthcare](https://services.google.com/fh/files/blogs/
 
 6. Technical requirements
    * Maintain legacy interfaces to insurance providers with connectivity between onprem / cloud
-     * Cloud VPN / Cloud Interconnect options
-     * TODO: Revisit these solutions to understand what is most suitable
+     * Cloud Interconnect options
    * Consistent way to manage Container based applications
      * GKE to run container based applications
      * Clusters setup to autoscale with demand
    * High performance connection  between onprem / cloud
-     * Cloud Interconnect for high bandwith
+     * Direct / Partner Interconnect for high bandwith
    * Consistent logging, log retention, monitoring and alerting
      * Stackdriver to capture logs, metrics and setup alerts based off that
      * Options for alerts to notify non email communication methods
@@ -164,16 +169,27 @@ Link to case study: [erh healthcare](https://services.google.com/fh/files/blogs/
      * Possibility to introduce Cloud IOT if IOT devices potentially upload data in the future
 
 7. Current environment / translated to GCP
-   * Cloud Migration Process
-     * Assess: Biggest ROI with the applications running on datacentre with expiring lease. Focus on containerised applications.
-     * Pilot: Setup of projects, mapping of active directory to cloud IAM.
-     * Move Data: 
-       * MySQL / MS SQL -> Cloud SQL
-       * MongoDB -> Cloud Datastore
-       * Redis -> Managed redis instance
+   * Data Centers hosted in multi colocation facilities
+   * Lease on one facility due to expire
+   * Containerised web based applications running on Kubernetes
+   * Data is a combination of Relational / NoSQL databases
+   * Legacy File/API based applications integrate with insurance providers - No plan to migrate
+   * User management via Active Directory
+   * Monitoring performed with open source tools
+   * Alerting via emails which has been ineffective
+   * Cloud Migration Strategy
+     * Assess: 
+       * Biggest ROI with the applications running on datacentre with expiring lease. 
+       * Focus on containerised applications.
+     * Pilot: 
+       * Setup of projects, mapping of Active Directory to cloud IAM.
+     * Move Data First: 
+       * MySQL / MS SQL Databases -> Cloud SQL
+       * MongoDB Databases        -> Cloud Datastore
+       * Redis Databases          -> Managed redis instance
        * Assess the data transfer options available depending on size / bandwith
-     * Move Applications:
-       * Focus on containerised apps
+     * Move Applications Next:
+       * Containerised Applications -> Managed GKE cluster
 
 8. Infrastructure / data lifecycle
    * TODO: Include diagram for data lifecycle / solution
@@ -185,34 +201,119 @@ Additional solution references:
 
 ## Helicopter Racing League
 
-TODO: Complete analysis of case study
-
 Link to case study: [helicopter racing league](https://services.google.com/fh/files/blogs/master_case_study_helicopter_racing_league.pdf)
 
 1. What does the company do?
+   * Helicopter racing league
+   * Streaming service of all the races
+
 2. What are their pain points?
+   * Current platform is unable to support real time predictions
+   * Only able to predict race outcomes / season long events
+
 3. What are their goals?
+   * Migrate to a new service to make use of managed AI / ML
+   * Expand into emerging regions with a global footprint
+   * Move content closer to the end users
+
 4. What do they care about?
+   * Compliance with regulators
+     * AEMA (European Countries)
+     * PII if there is any Personal Information Stored
+
 5. Business requirements
+   * Reduce latency in emerging regions
+   * Expose predictive services via APIs to partners
+   * Increase predictive capabilities during / before races:
+      * Race results / mechanical failures / crowd sentiment
+      * Live data ingestion being fed into models with results displayed
+   * Increase telemetry / insights
+      * Stackdriver monitoring
+   * Measure fan engagement in new predictions
+     * Stackdriver monitoring
+   * Enhance global availability / quality of broadcasts
+     * Multi Regional 
+   * Create a merchandising revenue stream 
+
 6. Technical requirements
+   * Increase prediction throughput
+   * Reduce viewer latency
+   * Increase transcoding latency
+   * Real time analytics of viewer platform
+   * Creation of a Data Mart to enable processing of large volumes of race data
+
 7. Current environment / translated to GCP
+   * Cloud first
+   * Video recording done on track and uploaded to cloud for encoding in cloud
+   * Mobile data centres at tracks mounted by trucks
+   * Content stored in an object service           -> (GCS)
+   * Video encoding / transcoding performed in VMs -> (GCE)
+   * Predictions done using TensorFlow inside VMs  -> (Cloud ML)
+
 8. Infrastructure / data lifecycle
 
 Additional solution references:
 
 ## TerramEarth
 
-TODO: Complete analysis of case study
-
 Link to case study: [terramearth](https://services.google.com/fh/files/blogs/master_case_study_terramearth.pdf)
 
 1. What does the company do?
-2. What are their pain points?
-3. What are their goals?
-4. What do they care about?
-5. Business requirements
-6. Technical requirements
-7. Current environment / translated to GCP
-8. Infrastructure / data lifecycle
+   * Heavy Machinary manufactorer
 
+2. What are their pain points?
+   *  High growth rate
+
+3. What are their goals?
+   * Create ecosystem of new products enabling access to their data
+   * Increase automation of vehicles
+   * Eventual migration of legacy apps to the cloud
+
+4. What do they care about?
+   * 
+  
+5. Business requirements
+   * Predict / detect vehicle malfunction and rapidly ship parts for just in time repair
+      * Vehicle data uploaded via Cloud IOT
+      * Data ingestion via Cloud PubSub
+      * Alerting on top to detect malfunctions - Cloud Monitoring / Alerting
+      * Data processed / stored to enable models to be build / run for predictive purposes
+   * Decrease operational costs / adapt to the season
+      * Scale down when demand is low - During off seasons
+   * Increase speed / reliability of development workflows
+      * Automated CI / CD pipelines
+      * Cloud Build
+   * Allow remote developers to be productive without compromising code / data security
+   * Create a flexible / scalable platform for developers to create APIs for partners
+      * Deployment model which allows scaling of services. GKE / Cloud Run / App Engine Flex
+  
+6. Technical requirements
+   * Create an abstraction layer for HTTP API access to their legacy systems to enable a gradual move to the into the cloud without disruption.
+      * HTTP Loadbalancer which can have rules modified when eventually want to point towards migrated services on the cloud
+   * Modernise CI/CD to allow fast deployment of containerised applications
+      * Cloud Build for automated CI
+      * Build application images inside CI and push to Container Registry
+      * Trigger CD pipeline (Harness / Jenkins) to on successful build
+    * Allow developers to run experiments without compromising security and governance
+    * Self service portal for internal / partners to create/request resources and manage access to APIs
+      * Deployment Manager??
+    * Cloud native solutions for key and secrets management
+      * Cloud Secret Manager for secrets manager
+      * Cloud KMS for key management
+    * Standardise on tooling for application / network monitoring
+      * Stackdriver monitoring
+  
+7. Current environment / translated to GCP
+   * Vehicle data aggregation lives in GCP
+   * Legacy Inventory & Logistics Systems contained on prem
+      * Sensor data from manufactoring plants sent to systems on prem
+   * On Prem connectivity established with GCP via Partner Interconnect
+   * Web UI for customers is running on GCP
+      * Has access to stock management / logistics
+  
+8. Infrastructure / data lifecycle
+   * Cloud IOT for vehicles
+   * Cloud PubSub for data ingestion points
+   * Cloud Dataflow to process data and store in a location for further analysis (BigQuery / BigTable)
+  
 Additional solution references:

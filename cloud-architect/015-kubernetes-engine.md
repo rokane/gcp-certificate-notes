@@ -1,20 +1,20 @@
 # Kubernetes Engine
 
 The Cloud Architect exam will test your knowledge of the container deployment 
-process and the tools involved in a common developer ci/cd workflow.
+process and the tools involved in a common developer CI/CD workflow.
 
 In summary, there is a three step process:
 
-1. Build It
+1. Build
   * Docker images need to be pulled from source registry and built somewhere
   * Cloud Build is Googles CI product which can support this
 
-2. Store It
+2. Store
   * Docker images need to be stored somwhere for later retrieval
   * Container Registry is Google private Docker registry
   * Can integrate with other internal products such as GKE, GCE, GAE 
   
-4. Deploy It
+3. Deploy
   * Need a mechanism to run the containerised application
   * This section focuses on Google Kubernetes Engine (GKE)
   

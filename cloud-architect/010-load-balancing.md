@@ -140,7 +140,7 @@ Instance Group level.
 ### Health Checks
 
 If an instance in an Instance Group is detected to be unresponsive, the group
-will recreate a new healthy Instance Group to ensure the full group maintains 
+will recreate a new healthy Instance to ensure the full group maintains 
 healthy.
 
 ## Updating Instance Groups

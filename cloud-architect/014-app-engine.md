@@ -2,7 +2,7 @@
 
 The Cloud Architect exam focuses more on the management side of App Engine rather
 than the building of apps on App Engine. For that, the Cloud Developer exam 
-would play a larger focus.
+would have a larger focus.
 
 ## Standard vs Flexible Environment
 
@@ -10,7 +10,7 @@ When choosing to run your application on App Engine, you get choice on whether
 you wish to run on the standard / flexible runtime environment. 
 
 The standard has faster scale up time, and will scale to zero if no traffic is
-being served. It is more constrained with only Python, Java, Go and NodeJS 
+being served. It is constrained to only using Python, Java, Go and NodeJS 
 runtime languages. More suitable for low cost / low traffic applications.
 
 The flexible environment has less contraints but more management back on the 

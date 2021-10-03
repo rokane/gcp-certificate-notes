@@ -1,8 +1,8 @@
 # Where should I run my code?
 
 There are many options available for deploying your code on GCP. Which option
-you choose depends on what kind of control you want over where your application 
-is deployed and hosted and what kind of things you want to manage vs what you 
+you choose depends on the level of control you want over where your application 
+is deployed and hosted, and what kind of things you want to manage vs what you 
 want google to manage for you.
 
 ## Compute Options
@@ -70,7 +70,7 @@ include:
 * Management over applications but not machines
 * Portability of containers
 * No dependencies on OS versions
-* Network protocols beyong HTTP/HTTPS
+* Network protocols beyond HTTP/HTTPS
 * CI/CD pipelines
 
 **What you need to think about?**
@@ -101,7 +101,7 @@ code. Common use cases include:
 **What you want?**
 
 * Only want to focus on code
-* Handle variable load from zero to massibe
+* Handle variable load from zero to massive scale
 
 **What you need to think about?**
 
@@ -111,8 +111,8 @@ code. Common use cases include:
 
 **Constraints?**
 
-* Limited / standard runtimes (Python, Go, Java, PHP, NodeJS)
-* Flexible - no scale to zero, slower scaling up/down compared to standard
+* Standard Option limited in runtimes (Python, Go, Java, PHP, NodeJS)
+* Flexible Option available - no scale to zero, slower scaling up/down compared to standard
 * Always paying for something even when no one is using it
 
 **What Google manages?**
